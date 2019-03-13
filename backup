@@ -1,0 +1,141 @@
+
+
+<div class="facultybackground">
+    <div class="container">
+        <div class="text-white ">
+
+            <h2 class="card-title   text-center">
+        <div class="chooseheader"> Our faculty</div>
+      </h2>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div id="myCarousel2" class="carousel slide testimonalclient" data-ride="carousel">
+
+                        <!-- Carousel indicators -->
+
+                        <!-- Wrapper for carousel items -->
+                        <div class="carousel-inner">
+
+                            <div class="item carousel-item"   *ngFor="let d of instrdata; let i = index" [ngClass]="{'active' : i == 0}">
+                                
+                                <div class="row">
+
+                                    <div class="col-md-4"></div>
+
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4"></div>
+
+                                    <div class="col-md-4"  *ngFor="let f of d">
+                                        <div class="our-team">
+                                            <a><img [src]="f.imag" (click)="onselect(f)"></a>
+                                            <div class="team-content">
+                                             
+                                                <h3 class="title">{{f.username}}</h3>
+                                                <span class="post">{{f.position}}</span>
+                                            </div>
+                                            <ul class="social">
+                                                <li>
+                                                    <a href="{{f.facebook}}" target="_blank" class="fa fa-facebook"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{f.twitter}}" target="_blank"  class="fa fa-twitter"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{f.linkedin}}" target="_blank"  class="fa fa-google-plus"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{f.website}}" target="_blank"  class="fa fa-youtube"></a>
+                                                </li>
+                                            </ul>
+                                            <div class="icon">
+                                                <i class="fa fa-plus"> </i>
+
+                                       </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div style="clear:both"></div>
+                                </div>
+                           <!--      <ol class="carousel-indicators testimonial-indicators marginTop">
+                                    <li *ngFor="let d of instrdata; let i = index" [ngClass]="{'active' : i == 0}" data-target="#myCarousel2" data-slide-to="i"></li>
+                                </ol> -->
+
+
+                                <ol class="carousel-indicators testimonial-indicators marginTop">
+
+                                    <!-- here's second id which must be equal to first one -->
+                                    
+                                            <li data-target="#myCarousel2" *ngFor="let li of instrdata; let i = index" [attr.data-slide-to]="i" [ngClass]="{'active' : i == 0}"></li>
+                                    
+                                          </ol>
+                             
+                        <div style="clear:both"></div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+ts::
+
+
+
+
+ get_instructor(){
+    this.instr.getinstructor().then(result=>{
+        //alert("ok")
+        //console.log("ts getinstructor======>"+JSON.stringify(result));
+        //console.log(result)
+        this.instrdata=result;
+        //console.log("first"+this.instrdata)
+        let a = this.instrdata.length
+        let b = a/3;
+        b = Math.floor(b)
+        let c = a%3;
+        //console.log(a)
+        //console.log(b)
+        //console.log(c)
+        let d = []
+        if(b>0){
+          for(let i=0;i<b;i++){
+            let f = []
+            let j = i*3
+            f.push(this.instrdata[j])
+            f.push(this.instrdata[j+1])
+            f.push(this.instrdata[j+2])
+            d.push(f)
+          }
+        }
+        //console.log(d)
+        if(c!=0){
+          if(c>0){
+            if(b==0){
+              let f = []
+              for(let i=0;i<c;i++){
+                f.push(this.instrdata[i])
+              }
+              d.push(f)
+            }else{
+              let e = 3*b
+              let f = []
+              for(let i=0;i<c;i++){
+                f.push(this.instrdata[e+i])
+              }
+              d.push(f)
+            }
+          }    
+        }
+        this.instrdata=d;
+        // console.log(this.instrdata)
+        /* for(var i in this.instrdata)
+              this.resultData.push(this.instrdata[i]); */
+      // console.log(JSON.stringify(this.instrdata[0]))
+    })
+  }
