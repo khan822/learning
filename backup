@@ -139,3 +139,125 @@ ts::
       // console.log(JSON.stringify(this.instrdata[0]))
     })
   }
+testimonial:
+
+
+<div class="container-fluid testimonalbackground">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="myCarousel" class="carousel slide testimonalclient" data-ride="carousel">
+          <h2 class="text-center paddingTB40 testimonial-heading"> What Our student says
+          </h2>
+          <!-- Carousel indicators -->
+
+          <div style="clear:both"></div>
+          <!-- Wrapper for carousel items -->
+          <div class="carousel-inner">
+
+       
+
+            <div class="item carousel-item"  *ngFor="let d of testimonials; let i = index" [ngClass]="{'active' : i == 0}">
+              <div class="row">
+                <div class=" studentmargin col-lg-6 col-md-6 col-12" *ngFor="let f of d">
+
+                  <div class="testimonial">
+                    <div class="pic">
+                      <img [src]="f.thumbnail" alt="">
+                    </div>
+
+                    <div class="testimonial-review">
+                      <h4 class="testimonial-title">
+                        {{f.name}}
+                        <small>{{f.customer_position}}</small>
+                      </h4>
+                      <p>
+                        {{f.description}}
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+                
+              </div>
+            </div>
+          
+            <div style="clear:both"></div>
+          </div>
+     <!--      <ol class="carousel-indicators testimonial-indicators marginTop">
+            <li data-target="#myCarousel" *ngFor="let d of testimonials; let i = index" [ngClass]="{'active' : i == 0}" data-slide-to="i" ></li>
+            
+          </ol> -->
+
+          <ol class="carousel-indicators testimonial-indicators marginTop">
+
+              <!-- here's second id which must be equal to first one -->
+              
+                      <li data-target="#myCarousel" *ngFor="let li of testimonials; let i = index" [attr.data-slide-to]="i" [ngClass]="{'active' : i == 0}"></li>
+              
+                    </ol>
+          
+          <div style="clear:both"></div>
+        </div>
+        <div style="clear:both"></div>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+
+</div>
+
+ts:
+
+
+
+testimonial(){
+  this.instr.get_testimonial().then(result=>{
+   // this.keys = Object.keys(result);
+    this.testimonials=result;
+   // console.log("cousrse testimonial ts======>"+JSON.stringify(this.testimonials));
+   let a = this.testimonials.length;
+   let b = a/2;
+   b = Math.floor(b)
+   let c = a%2;
+   let d = []
+   if(b>0){
+    for(let i=0;i<b;i++){
+      let f = []
+      let j = i*2
+      f.push(this.testimonials[j])
+      f.push(this.testimonials[j+1])
+      d.push(f)
+    }
+  }
+  if(c!=0){
+  if(c>0){
+    if(b==0){
+        let f = []
+      for(let i=0;i<c;i++){
+        
+        f.push(this.testimonials[i])
+        
+      }
+      d.push(f)
+    }else{
+    
+      let e = 2*b
+      let f = []
+      for(let i=0;i<c;i++){
+        
+        f.push(this.testimonials[e+i])
+      }
+      d.push(f)
+    }
+    
+  }
+  }
+  this.testimonials=d
+  //console.log(this.testimonials)
+  
+  })
+
+
+}
