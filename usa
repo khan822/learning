@@ -1,0 +1,150 @@
+
+userprofile setting:
+getuserdetails(){
+this.username=localStorage.getItem('username'); 
+this.userservice.user_get_users (this.username).then(result=>{
+this.userdata=result['users'][0];
+this.firstname=this.userdata.firstname;
+this.lastname=this.userdata.lastname;
+this.emailid=this.userdata.email;
+this.profileimage=this.userdata.profileimageurl
+//alert(JSON.stringify(this.firstname+"================"+this.lastname+" =====email"+this.emailid+"==profileimage"+this.profileimage))
+this.userdatacustomfield=result['users'][0]['customfields'];
+//alert(this.userdatacustomfield.length);
+
+for(let i=0;i < this.userdatacustomfield.length; i++) {
+
+      if(this.userdatacustomfield[i].name == 'designation') {
+        this.userdesignation=this.userdatacustomfield[i].value
+
+         // alert(this.userdatacustomfield[i].value);
+
+      }else if(this.userdatacustomfield[i].name == 'location') {
+        this.userlocation=this.userdatacustomfield[i].value
+         // alert(this.userdatacustomfield[i].value);
+
+      }else if(this.userdatacustomfield[i].name == 'mobile') {
+this.mobilenumber=this.userdatacustomfield[i].value
+         // alert(this.userdatacustomfield[i].value);
+}
+else if(this.userdatacustomfield[i].name == 'facebook') {
+  this.facebook=this.userdatacustomfield[i].value
+           // alert(this.userdatacustomfield[i].value);
+   }
+   else if(this.userdatacustomfield[i].name == 'twitter') {
+    this.twitter=this.userdatacustomfield[i].value
+              //alert(this.userdatacustomfield[i].value);
+     }
+     else if(this.userdatacustomfield[i].name == 'Linkedin') {
+      this.Linkedin=this.userdatacustomfield[i].value
+              //  alert(this.userdatacustomfield[i].value);
+       }
+}
+
+//console.log("customfield ===============>"+JSON.stringify(this.userdatacustomfield))
+  })
+}
+
+
+
+
+
+html:
+
+
+<div class="container">
+
+
+
+  <div class="row" style="    margin-top: -32px;
+  margin-bottom: 10px; backround:#f8f8f8;">
+
+
+    <div class="col-md-8">
+
+      <div class="row">
+
+        <div class="col-lg-5 col-md-7 col-sm-12">
+
+          <div class="userprofile">
+            <!-- <img style="    width: 104px;" src="../../assets/images/profile-icon.png"> -->
+            <img style="    width: 104px;"  *ngIf="profileimage" [src]="profileimage">
+
+            <div style="    color: white;
+font-weight: bold;
+
+margin-left: 9px;"> {{firstname}}{{lastname}}</div>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-md-5 col-lg-7 col-sm-12 " style="padding-top: 10px;" >
+
+          <div>
+            <div style="font-weight: bold;">
+              <strong>{{firstname}}{{lastname}}</strong>
+            </div>
+             <div class="profilefont profilebtm" *ngIf="userdesignation">{{userdesignation}}</div>
+           
+            <div class="profilebtm">
+              <i class="	fa fa-map-marker profilepadding"></i>
+              <span class="profilefont" *ngIf="userlocation">{{userlocation}}</span>
+            </div>
+
+            <div class="profilebtm">
+              <i class="	fa fa-envelope profilepadding"></i>
+              <span class="profilefont">{{emailid}}</span>
+            </div>
+
+            <div class="profilebtm">
+              <i class="	fa fa-phone profilepadding"></i>
+              <span class="profilefont" *ngIf="mobilenumber">{{mobilenumber}}</span>
+            </div>
+
+
+          </div>
+          <div>
+            <a href="{{facebook}}"target="_blank" class="icon fa fa-facebook-f"></a>
+            <a href="{{twitter}}"target="_blank" class=" icon fa fa-twitter"></a>
+
+            <a href="{{Linkedin}}"target="_blank" class=" icon fa fa-linkedin"></a>
+            <a href="#" target="_blank" class="	icon fa fa-google-plus"></a>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+
+
+service:
+
+    user_get_users (username){
+    //  alert("service usernmae"+JSON.stringify(username))
+        let postData = new FormData();
+        postData.append('wstoken','e1dec54b519027765534d15f272cca63');
+        postData.append('wsfunction','core_user_get_users ');
+        postData.append('criteria[0][key]','username');
+        postData.append('criteria[0][value]',username);
+      //  alert("service postdata"+postData)
+        return new Promise((resolve,reject)=>{  
+          let headers =new Headers();
+          headers.append('Content-Type','application/x-www-form-urlencoded');
+          this.http.post(this.apiUrl,postData)
+          .subscribe(res=>{
+            resolve(res)
+          // alert("Service result  user_get_users ======>"+JSON.stringify(res));
+          },(err)=>{
+          reject(err);
+         alert("Service error  user_get_users ======>"+JSON.stringify(err));
+          })
+        })
+      }
