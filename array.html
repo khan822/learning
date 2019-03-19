@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+
+
+
+
+
+<script>
+/*ITERATIVE METHODS*/
+/*for of*/
+var cars=["benz","volvo","bmw"]
+for(var val of cars){
+console.log("for of============="+val)
+
+}
+/*while*/
+const a = ["a", "b", "c"];
+const it = a.values();
+let entry;
+while (!(entry = it.next()).done) {
+    console.log("using while ========"+entry.value);
+}
+
+
+
+
+/*for in*/
+var name;
+var b=["satheesh","imran"];
+
+for(name in b){
+
+console.log("for in=========="+name)
+}
+
+/*for each*/
+
+var d = ["a", "b", "c"];
+d.forEach(function(entry) {
+    console.log("for each============="+entry);
+});
+
+/*Array from*/
+console.log("Array from===="+Array.from('foo'));
+
+
+/*using foreach*/
+var officers=[
+
+{id:1,name:'imran'},
+{id:2,name:'satheesh'},
+{id:3,name:'apsar'},
+{id:4,name:'fouzan'},
+]
+
+var ids=[];
+officers.forEach(function(officer){
+console.log("id============"+ids.push(officer.id))
+})
+
+
+
+/*using map*/
+var officerss=[
+
+{id:1,name:'imran'},
+{id:2,name:'satheesh'},
+{id:3,name:'apsar'},
+{id:4,name:'fouzan'},
+]
+
+var name=[];
+var name=officerss.map(function(officer){
+console.log("using map========"+ officer.name)
+})
+
+
+const officersIds = officers.map(officer => officer.id);
+console.log("map type"+officersIds)
+
+
+
+/*total no of years calculate*/
+var pilots = [
+  {
+    id: 10,
+    name: "Poe Dameron",
+    years: 14,
+  },
+  {
+    id: 2,
+    name: "Temmin 'Snap' Wexley",
+    years: 30,
+  },
+  {
+    id: 41,
+    name: "Tallissan Lintra",
+    years: 16,
+  },
+  {
+    id: 99,
+    name: "Ello Asty",
+    years: 22,
+  }
+];
+
+
+
+const totalYears = pilots.reduce((acc, pilot) => acc + pilot.years, 0);
+console.log("total years count======"+totalYears)
+
+var mostExpPilot = pilots.reduce(function (oldest, pilot) {
+  return (oldest.years || 0) > pilot.years ? oldest : pilot;
+}, {});
+console.log("which one is most experience"+JSON.stringify(mostExpPilot))
+
+
+
+
+
+
+
+/*filter*/
+
+var pilotss = [
+  {
+    id: 2,
+    name: "Wedge Antilles",
+    faction: "Rebels",
+  },
+  {
+    id: 8,
+    name: "Ciena Ree",
+    faction: "Empire",
+  },
+  {
+    id: 40,
+    name: "Iden Versio",
+    faction: "Empire",
+  },
+  {
+    id: 66,
+    name: "Thane Kyrell",
+    faction: "Rebels",
+  }
+];
+
+
+const rebels = pilotss.filter(pilot => pilot.faction === "Rebels");
+console.log("filter======"+JSON.stringify(rebels))
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
