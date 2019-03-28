@@ -1,0 +1,30 @@
+         <div class="progress">
+                    <div class="progress-bar"  [style.width]="progress +'%'"> {{progress}}%</div>
+          </div>
+          
+          
+          
+          ts:
+          
+          
+ get_course_completion_status(){
+  this.userid=localStorage.getItem('userid')
+  
+this.userservice.enrol_get_users_courses(this.userid).then((result)=>{
+
+this.coursestatus=result[0];
+
+this.courseshortname=this.coursestatus.shortname
+//this.course(this.courseshortname);
+//console.log("COURSE shortnmae===="+JSON.stringify(this.courseshortname))
+this.courseid=this.coursestatus.id;
+this.counter(this.courseid);
+this.get_Time_spend_online(this.courseid);
+this.get_course_rating(this.courseid);
+this.coursename = this.coursestatus.fullname
+this.summary = this.coursestatus.summary
+                                    this.progress=Math.round(this.coursestatus.progress);
+this.courseimage=this.coursestatus['imagefiles'];
+})
+}
+
