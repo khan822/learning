@@ -1,18 +1,23 @@
 
-counter(){
+
+
+counter(courseid){
   this.userid=localStorage.getItem('userid')
-  //alert("userid"+this.userid)
-this.userservice.counter_local_courseduration(this.userid).then(result=>{
+ 
+  
+this.userservice.counter_local_courseduration(this.userid,courseid).then(result=>{
+  //alert("timer==="+JSON.stringify(this.userid+'courseid--->>>>'+courseid))
 this.timer=result;
-alert("timer==="+JSON.stringify(this.timer))
+//alert("timer==="+JSON.stringify(this.timer))
 this.enroldate=this.timer[0]['enroled_date'];
 this.coursevalidity=this.timer[0]['course_validity']
+//alert(this.enroldate+'=============='+this.coursevalidity);
 var ts = new Date(this.enroldate * 1000);
   let sec = this.coursevalidity / 86400;
   var someDate = new Date(ts);
   var numberOfDaysToAdd = sec;
   someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
-  alert("============"+someDate);
+  //alert("============"+someDate);
   
 const second = 1000,
       minute = second * 60,
@@ -30,19 +35,36 @@ x = setInterval(function() {
   var hours = Math.floor((distance % (day)) / (hour));
   var minutes = Math.floor((distance % (hour)) / (minute));
   var seconds = Math.floor((distance % (minute)) / second);
-
-  document.getElementById("day").innerHTML = days + '';
+  
+  try {
+    document.getElementById("day").innerHTML = days + '';
   document.getElementById("hour").innerHTML = hours + '';
   document.getElementById("min").innerHTML = minutes + '';
   document.getElementById("sec").innerHTML = seconds + '';
+  }
+  catch(err) {
+    clearInterval(x)
+  }
+  
+ 
 
-if(distance < 0){
+ if(distance < 0){
   clearInterval(x);
   alert("Course duration expired!.")
   localStorage.clear();
   window.location.reload();
-   }
+   } 
 }, second)
 
 })
 }
+
+html:
+                <span id="day"></span><br/>
+                  <span class="coursebtmfont">Days</span>
+                    <span id="hour"></span><br/>
+                  <span class="coursebtmfont">hours</span>
+                    <span id="min"></span><br/>
+                  <span class="coursebtmfont">min</span>
+                  <span id="secs"></span><br/>
+                  <span class="coursebtmfont">secs</span>
