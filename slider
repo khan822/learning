@@ -1,0 +1,46 @@
+
+ <div class="col-md-12" style="margin-bottom: 5px;" >
+ <div class="courseshadow">
+  <div  class="courseheadingbtm">  <h3 class="sidewidgetheader ">Important Dates</h3></div>
+<div>
+<div id="demo" class="carousel slide" data-ride="carousel" >
+<div class="carousel-inner">
+    <div class="carousel-item"  *ngFor="let d of data; let i = index;" [ngClass]="{'active' : i == 0}">
+       <div class="media mediabtm1 timelinemedia" >
+        
+            <div class="media-body mediamargin">
+                <div class="coursetimeline" >     <img src="../../assets/images/calendar-icon.png">     <span class="Timelinedate">{{d.timestart}} </span></div>
+                
+               <!--  <img src="../../assets/images/quiz-icon.png"> -->
+           
+                <div class="coursenum1 coursecolor">{{d.name}}</div>
+                <div class="coursemodule1" [innerHtml]="d.description"></div>       
+            </div>
+          </div>
+    </div>
+  </div>
+  
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span><i class="fa fa-angle-left"></i></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span><i class="fa fa-angle-right"></i></span>
+  </a>
+</div>
+</div>
+  </div>
+<div>
+</div>
+ </div>
+ 
+ 
+ get_important_dates(shortname){
+  this.userservice. local_importantdays (shortname).then(result=>{
+     this.data=result;
+    //console.log("ts result  get_important_dates======>"+JSON.stringify(this.data));
+
+ })
+} 
+
+ 
+ 
