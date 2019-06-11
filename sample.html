@@ -1,0 +1,51 @@
+<html>
+<body>
+<input name="username" type="text"  id="username" class="searchField"/>
+
+<input name="password" type="text"  id="password" class="searchField"/>
+<button onclick="createTeam()" id="submit"> click</button>
+
+
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+function createTeam() {
+	console.log('createTeam');
+
+	$.ajax({
+		type: 'POST',
+		contentType: 'application/json',
+		url:'http://localhost:4000/login',
+		dataType: "json",
+		data: formToJSON(),
+		success: function(data, textStatus, jqXHR){
+		alert(data);
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			alert('CREATING PROJECT ERROR: ' + textStatus);
+		}
+	});
+}
+function formToJSON() {
+
+	var teamname=	$('#username').val();
+
+	var team_shname=	$('#password').val();
+alert(teamname);
+	//var id=0;
+	///var tlname="";
+	return JSON.stringify({
+		//"id":id,
+		"username": teamname,
+		"password": team_shname,
+		///"tl_name":tlname,
+
+		
+		});
+}
+
+
+
+</script>
+</body>
+</html>
+

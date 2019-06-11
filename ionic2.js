@@ -85,38 +85,119 @@ res.end();
 })
 })
 
+
+
+
 /*
+app.post("/messages",(req,res,next)=>{
+  var con = mysql.createConnection({
+    host:"192.168.16.246",
+    user:"allusers",
+    password:"whdb@123",
+    database:"imran_learning"
+     })
 
-app.post("/delete",(req,res,next)=>{
 
-var mysql = require('mysql');
+con.connect(function(err){
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "yourusername",
-  password: "yourpassword",
-  database: "mydb"
-});
+if(err) throw err;
 
-con.connect(function(err) {
-  if (err) throw err;
-  var sql = "DELETE FROM `employee` WHERE address = 'Mountain 21'";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Number of records deleted: " + result.affectedRows);
-  });
-});
+ var messages = new Messages(req.body);
+var username=username(req.body);
+console.log("variable===========>>>>>>"+ messages +"============= "+ username);
+
+//con.query("UPDATE `employee` SET messages = messages WHERE username =username",function (err,result,fields){
+con.query("UPDATE `employee` SET (`messages`, `username`) WHERE ('"+req.body.messages+"','"+req.body.username+"'")"
+{
+
+function (err,result,fields){
+  message.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+res.send(result)
 
 
 })
 
+})
+})*/
+
+
+
+
+app.post("/messages",(req,res,next)=>{
+  var con = mysql.createConnection({
+    host:"192.168.16.246",
+    user:"allusers",
+    password:"whdb@123",
+    database:"imran_learning"
+     })
+res.statusCode = 200;
+res.send(req.body)
+
+/*
+   con.connect(function(err){
+        
+
+        con.query("UPDATE `employee` SET (`messages`, `username`) WHERE ('"+req.body.messages+"','"+req.body.username+"')", 
+
+
+        function (err, result) {
+            if (err) {
+
+                res.statusCode = 503;
+                res.send({
+			 
+                    result: 'not updated',
+            
+                });
+            }else {
+                res.send({
+                     result:"successfully inserted"
+             });
+                console.log(result)       
+            }
+        
+           con.destroy(); 
+
+        }) 
+     })
 */
 
+})
 
 
 
 
 
+
+
+
+
+
+
+
+/*
+app.post('/messages', (req, res) => {
+
+  var con = mysql.createConnection({
+    host:"192.168.16.246",
+    user:"allusers",
+    password:"whdb@123",
+    database:"imran_learning"
+     })
+
+
+  var message = new Message(req.body);
+var username=username(req.body);
+  message.save((err) =>{
+    if(err)
+      sendStatus(500);
+    res.sendStatus(200);
+res.send(result)
+  })
+})*/
 
 
 
