@@ -6,6 +6,7 @@ var app=express();
 
 
 
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -37,6 +38,7 @@ var con = mysql.createConnection({
 
 
 
+
 /* insert employee*/
 app.post("/insert",(req,res,next)=>{
 	var firstname = req.body.firstname;
@@ -49,7 +51,7 @@ app.post("/insert",(req,res,next)=>{
 	 	res.send({
                      result:"successfully inserted"
          	    });
-                console.log(result) 
+              //  console.log(result) 
 
                 });
 		
@@ -63,21 +65,21 @@ con.query("SELECT * FROM `employee`",function (err,result,fields){
 
 if(err) throw err;
 res.json(result)
-console.log(result)
+//console.log(result)
 res.end();
 //con.end();
 
-})
+});
 
 
-})//end class
+});
 
 app.post("/selectid",(req,res,next)=>{
 var sql = con.query("SELECT * FROM employee WHERE id =?",[req.body.id],function (err,result,fields){
-console.log(sql);
+//console.log(sql);
 if(err) throw err;
 res.json(result)
-console.log("profile------->>>>"+result)
+//console.log("profile------->>>>"+result)
 res.end();
 //con.end();
 
@@ -85,13 +87,11 @@ res.end();
 
 
 })
-
-
 
 
 
 app.post('/delete', function (req, res) {
-   console.log(req.body);
+  // console.log(req.body);
    con.query('DELETE FROM employee WHERE `id`=?', [req.body.id], function (error, results, fields) {
 	//  if (error) throw error;
 	res.json(results)
@@ -100,19 +100,19 @@ app.post('/delete', function (req, res) {
 	});
 });
 
+app.post('/imagefile', function (req, res) {
+var sql = con.query("INSERT INTO image (id, profile_img) VALUES ('null', '"+[req.body.img]+"')",function (err,result,fields){
+if(err) throw err;
+res.json(result)
+//res.end();
+console.log(result)
+})
+});
 
 
-
-
-app.listen(4000, ()=>{
-    console.log("server running on port 4000");
+app.listen(9000, ()=>{
+    console.log("server running on port 9000");
     });
-
-
-
-
-
-
 
 
 
