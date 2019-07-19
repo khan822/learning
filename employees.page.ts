@@ -3,20 +3,59 @@ import { AlertController } from '@ionic/angular';
 import {AuthService} from '../providers/auth.service'
 import {Router} from '@angular/router'
 import {FileUploadModule} from 'primeng/fileupload';
-
+import { Lightbox } from 'ngx-lightbox';
+import { Gallery, GalleryItem, ImageItem, ThumbnailsPosition, ImageSize } from '@ngx-gallery/core';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.page.html',
   styleUrls: ['./employees.page.scss'],
 })
 export class EmployeesPage implements OnInit {
+
+ items: GalleryItem[];
 	data :any;
 userid:any
 	deletedata: any;
  base64textString: string;
   public encryptimg :any;
-	image:any
-  constructor(public alertController: AlertController,public auth:AuthService,public router:Router) { }
+	//image:any
+// private _album: Array = [];
+ _albums: any;
+  constructor(public alertController: AlertController,public auth:AuthService,public router:Router,private _lightbox: Lightbox, public gallery: Gallery) {
+
+ this._albums=[];
+   for (let i = 1; i <= 8; i++) {
+          const src = 'assets/profile/profile-' + i + '.jpg';
+          const caption = 'Image ' + i + ' caption here';
+          const thumb = 'assets/profile/profile-' + i + '.jpg';
+          let album = {
+             src: src,
+             caption: caption,
+             thumb: thumb
+          };
+    
+          this._albums.push(album);
+        } 
+ }
+
+
+
+
+ open(index: number): void {
+    // open lightbox
+    this._lightbox.open(this._albums, index);
+  }
+ 
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
+  }
+
+
+
+
+/*
 
   changeListener(even) {
   
@@ -50,15 +89,21 @@ userid:any
 console.log("imageresult====="+result)
 
 });
-  }
+  }*/
 
 
 
   ngOnInit() {
+
+
+
 	
 	this.selectemp()
 
   }
+
+
+
 
  selectemp(){
   this.auth.getemp().then(result=>{
@@ -154,7 +199,6 @@ this.selectemp()
 
 }
 }
-
 
 
 

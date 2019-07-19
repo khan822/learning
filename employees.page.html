@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>employees</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <!---<ion-button color="primary" (click)="presentAlertPrompt()">Add Employee</ion-button>
+   <ion-list  *ngFor="let details of data">
+  <ion-item-sliding>
+    <ion-item>
+       <ion-avatar item-start>
+        <img src="img/slimer.png">
+      </ion-avatar>
+      <p>{{details.username}}</p>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option (click)="send(details.id)">see profile</ion-item-option>
+      <ion-item-option color="danger" (click)="Delete(details.id)">Delete</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+
+</ion-list> 
+ <p-fileUpload  mode="basic" name="myfile[]" url="./upload.php" accept="image/*" customUpload="true" [(ngModel)]="image" (onSelect)="changeListener($event)"></p-fileUpload>
+
+----------->
+
+
+    <div class="col-md-9" *ngIf="submodulee==0">
+        <div class="tab-content" id="myTabContent">
+           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <br>
+              <div class="container">
+                 <div class="column has-text-centered">
+                   <div *ngFor="let image of _albums; let i=index">
+  <img [src]="image.thumb" (click)="open(i)"/>
+</div>
+
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid jumbotron" style="padding:0px;position:relative">
+
+  <div class="centered">Gallery</div>
+</div>
+<div class="container-fluid" >
+  <div class="row">
+    
+     <div class="col-md-9" >
+        <div class="tab-content" id="myTabContent">
+           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <br>
+              <div class="container">
+                <div class="column has-text-centered">
+    <div class="img-row col-md-3" *ngFor="let image of _albums; let i=index">
+      <img class="img-frame" [src]="image.thumb"  (click)="open(i)" style="width:100%;"> 
+   </div> 
+  </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+
+     
+  </div>
+</div>
+
+<!-- https://www.npmjs.com/package/ngx-lightbox
+https://stackblitz.com/edit/ngx-gallery-lightbox?file=src%2Fapp%2Fhome%2Fhome.component.ts
+----------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ion-content>
