@@ -28,3 +28,80 @@ background-color:#c7218bfa;}
 .ddd{
    -webkit-filter: brightness(65%);
     filter:brightness(100%);}
+
+
+
+
+
+
+      <div style="float:right">
+        <ion-icon class="library-funnelXX" style="color:#e99d10; font-size:30px" item-end name="funnel" (click)="openAssetTypeFilter($event)"></ion-icon>
+
+      </div>
+
+      <div class="library-container">
+        <!-- 
+        <button style="float:left;" ion-button (click)="isLibraryShow = false">
+          Menu
+        </button>
+ -->
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4 *ngFor="let data of libraryFilterdData">
+              <div class="card">
+                <div class="item item-body">
+
+
+                  <a>
+                    <!--            <img style="display:none" src="{{siteurl+'/blocks/cat_library/category_images/sample.jpg'}}" class="full-image" (click)="openLocalPdf(data.file_name)"> -->
+
+                    <img src="{{siteurl+'/blocks/cat_library/category_images/'+data.image_file_name}}" class="full-image" (click)="downloadAndOpenPdf(data.file_name)">
+
+
+                  </a>
+                  <h6> {{data.title | truncate : 20}} </h6>
+                  <div class="author"> {{data.author | words : 2}} </div>
+                  <div class="author"> {{data.accept_type }} </div>
+
+                  <button class="download-video" ion-button primary clear (click)="download(data.file_name)">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </button>
+
+
+           
+
+                </div>
+              </div>
+            </ion-col>
+
+
+
+
+          </ion-row>
+        </ion-grid>
+
+
+        <div *ngIf="!libraryFilterdData.length"> NO ITEMS TO DISPLAY </div>
+
+
+      </div>
+
+
+.library-container{
+  background-color:#F6F6F6;    
+    }
+.library-container .card .author{
+color:#868686;
+}
+.library-container .card H6{
+   margin-top:8px;
+    }
+.library-container .card img{
+ height:160px;
+ border-radius: 5px;
+}
+.library-funnel{
+  float: right;
+  margin-right: 10px;
+  color:rgb(17, 62, 160);
+}
