@@ -105,3 +105,47 @@ color:#868686;
   margin-right: 10px;
   color:rgb(17, 62, 160);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------menu dashboard
+<div class="box">
+
+</div>
+.box {
+  margin:20px;
+  width:200px;
+  height:200px;
+  position:relative;
+  z-index:0;
+}
+.box:before,
+.box:after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:-1;
+  background:radial-gradient(80% 80% at top center, green 98.5%,transparent 100%);
+}
+.box:before {
+  background:radial-gradient(80% 80% at top center, transparent 96%,#000 96% 99%,transparent 100%);
+  filter:blur(4px);
+}
+---------->
+
+
+
+
