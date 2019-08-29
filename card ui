@@ -1,1 +1,77 @@
 
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+<!-- https://www.google.com/search?q=categories+list+menu++ui+for+mobile+app&tbm=isch&tbs=rimg:CTkdbMrlZUJGIgg5HWzK5WVCRioSCTkdbMrlZUJGEQGtgT6gZ0Bx&tbo=u&ved=2ahUKEwigydzR2qfkAhWIQI8KHRAYDyMQiRx6BAgBEAo&ictx=1&uact=3#imgdii=V4S7PFCpoaMcsM:&imgrc=OR1syuVlQkbz9M: -->
+
+</ion-header>
+
+<ion-content style="background:#eff1febf">
+<ion-card style="background: linear-gradient(to right, #84469b, #583997);height: 169px;border-radius:6px ">
+<ion-grid style="    margin-top: 46px;">
+  <ion-row>
+    <ion-col style="text-align:center">
+      <ion-icon name="home" style="font-size:50px;color:#fff; "></ion-icon>
+    </ion-col>
+    <div style="border-right:1px solid #ffffff47;height: 76px;"></div>
+ <ion-col style="text-align:center">
+      <ion-label style="color:#fff;font-size:23px;font-weight: 500;">All devices</ion-label>
+      <p style="color:#ffffffb0">10k Followers</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-card>
+
+<ion-grid>
+
+<ion-row>
+  <ion-col style="text-align:center">
+    <ion-card style="height: 178px;box-shadow: 0 0 14px 0px #bcd1f9">
+      <div style="margin-top: 43px;">
+      <ion-icon name="home" style="font-size:50px;color:#0a691673; "></ion-icon>
+       <ion-label style="font-weight: 600;font-size: 17px;color: #7982a2;">Home</ion-label>
+           <p style="color:#6f6680c2">10k Followers</p>
+           </div>
+    </ion-card>
+  </ion-col>
+    <ion-col style="text-align:center">
+     <ion-card style="height: 178px;box-shadow: 0 0 14px 0px #bcd1f9">
+      <div style="margin-top: 43px;">
+      <ion-icon name="home" style="font-size:50px;color:#dbb32f; "></ion-icon>
+       <ion-label style="font-weight: 600;font-size: 17px;color: #7982a2;">Home</ion-label>
+           <p style="color:#6f6680c2">10k Followers</p>
+           </div>
+    </ion-card>
+  </ion-col>
+  
+</ion-row>
+
+<ion-row>
+  <ion-col style="text-align:center">
+   <ion-card style="height: 178px;box-shadow: 0 0 14px 0px #bcd1f9">
+      <div style="margin-top: 43px;">
+      <ion-icon name="home" style="font-size:50px;color:#7d5ea2; "></ion-icon>
+       <ion-label style="font-weight: 600;font-size: 17px;color: #7982a2;">Home</ion-label>
+           <p style="color:#6f6680c2">10k Followers</p>
+           </div>
+    </ion-card>
+  </ion-col>
+    <ion-col style="text-align:center">
+    <ion-card style="height: 178px;box-shadow: 0 0 14px 0px #bcd1f9">
+      <div style="margin-top: 43px;">
+      <!-- <ion-icon name="home" style="font-size:50px;color:#e47887; "></ion-icon> -->
+       <ion-icon ios="ios-contacts"  style="font-size:50px;color:#e47887; " md="md-contacts"></ion-icon>
+       <ion-label style="font-weight: 600;font-size: 17px;color: #7982a2;">Home</ion-label>
+           <p style="color:#6f6680c2">10k Followers</p>
+           </div>
+    </ion-card>
+  </ion-col>
+  
+</ion-row>
+
+</ion-grid>
+
+
+</ion-content>
