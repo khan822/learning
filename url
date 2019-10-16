@@ -552,3 +552,194 @@ color:#868686;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+video:
+
+
+import { Component } from '@angular/core';
+import { File } from '@ionic-native/file/ngx';
+
+@Component({
+  selector: 'app-tab3',
+  templateUrl: 'tab3.page.html',
+  styleUrls: ['tab3.page.scss']
+})
+export class Tab3Page {
+
+
+imageArray = [];
+listing:any;
+content:any;
+
+  constructor(private fileCtrl: File) {
+
+
+
+
+  this.getfile();
+}//constructor
+
+
+ getMIMEtype(extn) {
+      let ext = extn.toLowerCase();
+      let MIMETypes = {
+  
+        'mpeg': 'video/mpeg',
+        'mp4': 'video/mp4',
+        'ogv': 'video/ogg',
+        'webm': 'video/webm',
+        '3gp': 'video/3gpp',
+        '3g2': 'video/3gpp2',
+      }
+      return MIMETypes[ext];
+    }
+
+
+getImageData(num){
+ alert("num----" + JSON.stringify(num));
+
+    var imgname = this.listing[num]['name'];
+    
+  
+      let fileExtn = imgname.split('.').reverse()[0];
+      let fileMIMEType = this.getMIMEtype(fileExtn);
+      alert("if-fileMIMEType---" + JSON.stringify(fileMIMEType));
+      if(fileMIMEType){//ifmimetype
+      alert("if-fileMIMEType---" + JSON.stringify(fileMIMEType));
+    alert("src----" + JSON.stringify(imgname));
+	var src = this.listing[num].toInternalURL();
+	alert("src----" + JSON.stringify(src));
+
+        this.fileCtrl.resolveLocalFilesystemUrl(src).then(data => {
+        
+        this.content = data.toURL();
+        alert("content----" + JSON.stringify(this.content));
+        this.imageArray.push({
+  
+            "imagename": imgname,
+            "image": this.content
+  
+          });//imageArray
+               alert("imageArray----" + JSON.stringify(this.imageArray));
+          if (this.imageArray.length != this.listing.length) {
+          
+           this.imageNum++;
+           
+            this.getImageData(this.imageNum);
+          }//if
+          
+           
+        });//resolveLocalFilesystemUrl
+
+}
+
+}//getimage data
+
+
+
+
+
+
+
+
+
+
+    imageNum = 0;
+getfile(){//get file
+
+ this.imageArray = [];
+
+      this.imageNum = 0;
+     
+      
+      this.fileCtrl.listDir(this.fileCtrl.externalRootDirectory, 'myCoach@2').then((listing) => {
+  
+        this.listing = listing;
+  
+        this.getImageData(this.imageNum);
+  
+  
+  
+      });
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+
+
+
+
+}//get file
+
+
+
+
+
+
+
+
+
+
+  }//end class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
