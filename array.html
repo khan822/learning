@@ -165,3 +165,277 @@ console.log("filter======"+JSON.stringify(rebels))
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { File } from '@ionic-native/file';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { Platform } from 'ionic-angular';
+import { normalizeURL } from 'ionic-angular';
+import { Base64 } from '@ionic-native/base64';
+import { DomSanitizer } from '@angular/platform-browser';
+
+@IonicPage()
+@Component({
+  selector: 'page-downloadvideos',
+  templateUrl: 'downloadvideos.html',
+})
+export class DownloadvideosPage {
+
+
+  listing: any;
+  image: string;
+
+  imageArray = [];
+  source: any;
+  bo_html5: boolean;
+  count: number;
+  content: any;
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fileCtrl: File, private fileTransfer: FileTransfer, private platform: Platform, public base64: Base64, public sanitizer: DomSanitizer) {
+
+
+    /*   this.fileCtrl.checkFile(this.fileCtrl.externalRootDirectory, 'myCoach@2/Good learner_f1.jpeg').then(_ => {
+  
+        this.fileCtrl.readAsDataURL(this.fileCtrl.externalRootDirectory, 'myCoach@2/Good learner_f1.jpeg').then(text => {
+  
+          this.image = text;
+          //   confirm("readAsDataURL result----" + JSON.stringify(text));
+  
+  
+        }).catch(err => {
+  
+          //  confirm("readAsDataURL----" + JSON.stringify(err));
+  
+  
+        });
+      })
+  
+   */
+
+
+    /* 
+    
+    
+       this.fileCtrl.listDir(this.fileCtrl.externalRootDirectory, 'myCoachV2')
+      .then((data) => {
+        confirm("data------"+JSON.stringify(data[0]));
+        this.count = data.length;
+        const src = data[0].toInternalURL();
+        confirm("src------"+JSON.stringify(src));
+    
+        this.fileCtrl.resolveLocalFilesystemUrl(src).then(data => {
+          this.content = data.toURL();
+          confirm("src------"+JSON.stringify(this.content));
+    
+          document.getElementById('video').setAttribute('src', this.content);
+          confirm('Content path cahnged '+JSON.stringify( this.content));
+        }, error => {
+          confirm('File path error');
+        })
+      })
+      .catch(err => confirm('Directory doesnt exist'));
+     
+    
+    
+     */
+
+
+
+
+
+    this.fileCtrl.listDir(this.fileCtrl.externalRootDirectory, 'myCoachV2')
+      .then((data) => {
+        confirm("data------" + JSON.stringify(data[0]));
+        this.count = data.length;
+
+
+        for (let i = 0; i < this.count; i++) {
+
+          var imagename = data[i]['name'];
+
+          const src = data[i].toInternalURL();
+          confirm("src------" + JSON.stringify(src));
+          this.fileCtrl.resolveLocalFilesystemUrl(src).then(data => {
+            this.content = data.toURL();
+
+            this.imageArray.push({
+              "imagename": imagename,
+              "image": this.content
+
+            });
+            confirm("src------" + JSON.stringify(this.imageArray));
+
+            document.getElementById('video').setAttribute('src', this.content);
+            //  confirm('Content path cahnged ' + JSON.stringify(this.content));
+          }, error => {
+            confirm('File path error');
+          })
+
+
+        }
+
+      })
+      .catch(err => confirm('Directory doesnt exist'));
+
+
+
+    //  this.initiate();
+
+
+  }
+
+  /* 
+  
+    getMIMEtype(extn) {
+      let ext = extn.toLowerCase();
+      let MIMETypes = {
+  
+        'mpeg': 'video/mpeg',
+        'mp4': 'video/mp4',
+        'ogv': 'video/ogg',
+        'webm': 'video/webm',
+        '3gp': 'video/3gpp',
+        '3g2': 'video/3gpp2',
+      }
+      return MIMETypes[ext];
+    }
+  
+  
+  
+  
+  
+    getImageData(num) {
+  
+  
+      var img = this.listing[num]['name'];
+  
+  
+      let fileExtn = img.split('.').reverse()[0];
+      let fileMIMEType = this.getMIMEtype(fileExtn);
+  
+  
+  
+      if (fileMIMEType) {
+  
+        this.fileCtrl.readAsDataURL(this.fileCtrl.externalRootDirectory, 'myCoach@2/' + img).then(data => {
+          this.content = data;
+  
+          this.imageArray.push({
+  
+            "imagename": img,
+            "image": this.content
+  
+          });
+          confirm("readAsDataURL---err-" + JSON.stringify(this.imageArray));
+          if (this.imageArray.length != this.listing.length) {
+  
+            this.imageNum++;
+  
+            this.getImageData(this.imageNum);
+  
+          }
+  
+  
+        }).catch(err => confirm('Directory doesnt exist'));
+  
+      } else {
+        //  confirm("NO DATA AVAILABLE");
+  
+      }
+  
+  
+  
+  
+  
+  
+    }
+  
+  
+  
+  
+    imageNum = 0;
+  
+    initiate() {
+  
+      this.imageArray = [];
+  
+      this.imageNum = 0;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      this.fileCtrl.listDir(this.fileCtrl.externalRootDirectory, 'myCoach@2').then((listing) => {
+  
+        //  confirm(JSON.stringify(listing));
+  
+        this.listing = listing;
+  
+        this.getImageData(this.imageNum);
+  
+  
+  
+      });
+  
+  
+    } */
+
+
+
+
+}
+
+<ion-header>
+    <ion-navbar>
+        <ion-title>Downloaded Videos</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!--  
+    <video id="video" controls="controls" preload="metadata"  webkit-playsinline="webkit-playsinline" class="videoPlayer" width="400" >
+        <source [src]="content" type="video/mp4" />
+   </video>
+
+ -->
+
+    <ion-list>
+        <ion-item text-wrap *ngFor="let d of imageArray">
+            <div class="name">{{d.imagename}} </div>
+
+            <video id="video" controls="controls" preload="metadata"  webkit-playsinline="webkit-playsinline" class="videoPlayer" width="400" >
+                <source [src]="d.image" type="video/mp4" />
+           </video>
+        
+        </ion-item>
+    </ion-list>
+
+<h1>1</h1>
+
+</ion-content>
