@@ -28,6 +28,71 @@ https://forum.ionicframework.com/t/ionic-4-tabs-navigation-post-login-solution/1
 
 
 
+
+<ion-content class="background" >
+<div class="container">
+<ion-label class="title">Lorem ipsum ipsum</ion-label>
+
+</div>
+<div style="position: absolute;left: 35%;">
+<ion-grid>
+     <ion-row justify-content-center align-items-end style="height:100%">
+          <ion-col col-6>
+               <button class='boutton' ion-button color="secondary" round outline (click)='presentModalSignup()'>Sign Up> </button>
+          </ion-col>
+          <ion-col col-6 >
+               <button class='boutton' ion-button color="secondary" round outline (click)='presentModalLogin()'>Log In> </button>          
+          </ion-col>
+     </ion-row>
+</ion-grid>
+</div>
+</ion-content>
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+    height: 66vh;
+    background: #297fca;
+    clip-path: polygon(0 0, 109% 0, 186% 29%, 0 100%);
+}
+.background{
+
+ background: #fff;
+
+}
+.title{
+ color:#fff;
+ font-size: 22px;
+ font-weight: bold;
+ text-align: center;
+ padding: 10px
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <ion-card class="card">
 <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="ddd" >
 <footer class="footer">
