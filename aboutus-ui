@@ -1,0 +1,186 @@
+
+
+<ion-content style="background-color:#fff" >
+ <div class="shape">
+
+   
+<div style="position: absolute;width:100%;text-align:center;margin-top: 9px;">
+  <div>
+<div style="font-size: 47px;color: #fff;font-family: roboto slab,Sans-serif;    font-weight: 400;">About us
+ <div class="inner">&nbsp;</div>
+<div>
+<p style="font-size: 19px;text-align: center;margin-top: 24px;"> If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast.</p>
+</div>
+</div>
+
+<div>
+<ion-card>
+<div class="card">
+  <ion-icon name="logo-android" style="font-size: 80px;color: #3b5998;"></ion-icon>
+
+<h2>Lorem ipsum</h2><br>
+  <p style="color: #a0a0a0;font-family: pt sans,Sans-serif;"> If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast.
+     If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+      If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+       If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+        If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+  </p>
+</div>
+
+</ion-card>
+</div>
+
+<div>
+<ion-card>
+<div class="card">
+  <ion-icon name="logo-android" style="font-size: 80px;color: #3b5998;"></ion-icon>
+
+<h2>Lorem ipsum</h2><br>
+  <p style="color: #a0a0a0;font-family: pt sans,Sans-serif;"> If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast.
+     If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+      If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+       If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+        If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+  </p>
+</div>
+
+</ion-card>
+</div>
+
+<div>
+<ion-card>
+<div class="card">
+  <ion-icon name="logo-android" style="font-size: 80px;color: #3b5998;"></ion-icon>
+
+<h2>Lorem ipsum</h2><br>
+  <p style="color: #a0a0a0;font-family: pt sans,Sans-serif;"> If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast.
+     If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+      If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+       If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+        If you want to learn more about us, you’re in the right place. Read to learn&nbsp;how we managed to grow our business so fast
+  </p>
+</div>
+
+</ion-card>
+</div>
+
+
+<div>
+
+<h2>Our Story</h2>
+
+<p  style="color: #a0a0a0;font-family: pt sans,Sans-serif;">
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis velit metus. Morbi non augue non sapien ullamcorper volutpat id a libero. Curabitur maximus vel est ac suscipit. Pellentesque imperdiet ultricies interdum. 
+
+</p>
+</div>
+<br>
+<br>
+
+  <div class="center">
+
+<video width="320" height="240" controls style="border:10px solid #fff; height:150px; margin: 10px;">
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+  </div>
+
+ <br>
+  </div>
+
+</div>
+
+ <div class="getstart">
+<img
+src="https://library.elementor.com/wp-content/uploads/2017/03/tim-gouw-212348.jpg">
+</div> 
+</div>
+
+
+</ion-content>
+
+
+
+
+
+
+
+
+.shape {
+  position: relative;
+  /* overflow: hidden; */
+  height: 60vh;
+}
+
+.shape::before {
+
+  
+  border-radius: 100%;
+  position: absolute;
+background-color: transparent;
+    background-image: linear-gradient(250deg,#fe4c2e 0%,#f12184 94%);
+    opacity: .81;
+  transition: background .3s,border-radius .3s,opacity .3s; 
+  right: -200px;
+  left: -200px;
+  top: -200px;
+  content: '';
+  bottom: 0;
+}
+
+ 
+.inner{
+
+
+width: 80%;
+    height: 1px;
+    margin: 0px auto;
+    border-bottom: 3px solid #fff;
+    width: 20px;
+    margin-top: 15px
+
+}
+.card{
+
+text-align: center;
+padding:12px;
+box-shadow: 0 0 30px 0 rgba(0,0,0,.1);
+
+}
+
+.center{
+height: 170px;
+
+
+ 
+background-color: transparent;
+    background-image:linear-gradient(#fe4c2e, #f12184);;
+    opacity: .81;
+
+
+}
+.cardss {
+
+ 
+
+
+  background: #fff;
+    margin: 10px 10px 10px 10px;
+   
+    position: relative;
+    top: 10px;
+}
+
+
+.container1 {
+  padding: 2px 16px;
+}
+
+
+
+
+
+
+
