@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Notification</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+<ion-list no-lines>
+  <ion-item  class="item_border">
+    <ion-icon item-start  style="color: #00bcd4d1; font-size: 23px;" name="notifications"></ion-icon>
+    <h2 class="notifi_title">Cher</h2>
+    <p class="p_title">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p>
+    <ion-note  class="note">20 minutes ago</ion-note>
+    <ion-icon class="icon_color" item-end name="ios-arrow-forward"></ion-icon>
+  </ion-item>
+  
+    <ion-item class="item_border" >
+<ion-icon item-start  style="color: #00bcd4d1;  font-size: 23px;" name="notifications"></ion-icon>
+    <h2 class="notifi_title">Cher</h2>
+     <p class="p_title">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et </p>
+          <ion-note  class="note">20 minutes ago</ion-note>
+    <ion-icon class="icon_color" item-end name="ios-arrow-forward"></ion-icon>
+  </ion-item>
+  
+    <ion-item class="item_border">
+<ion-icon item-start  style="color: #00bcd4d1; font-size: 23px;" name="notifications"></ion-icon>
+    <h2 class="notifi_title">Cheryr</h2>
+   <p class="p_title">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et </p>
+        <ion-note  class="note">20 minutes ago</ion-note>
+    <ion-icon class="icon_color" item-end name="ios-arrow-forward"></ion-icon>
+  </ion-item>
+
+</ion-list>
+
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .item_border{
+      border-bottom: 2px solid #80808029!important;
+    }
+
+      .notifi_title{
+ font-size: 15px;
+    font-weight: bold;
+    font-family: lato;
+    color: #00BCD4;
+      }
+.p_title{
+font-family: lato;
+}
+      
+      .note{
+         font-size: 12px;
+       }
+      ion-label{
+      white-space: normal!important
+       }
+       .icon_color {color: #9E9E9E;
+           font-size: 24px;
+       }
+       
