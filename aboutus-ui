@@ -277,7 +277,67 @@ h1 {
 
 
 
+////ion select
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
 
+<ion-content padding>
+ <ion-select multiple placeholder= "select"  (ionChange)="test(d)" [(ngModel)]="data">
+    <ion-option value ="{{d}}"  *ngFor="let d of data1">
+      {{d}}
+    </ion-option>
+  </ion-select> 
+
+</ion-content> 
+
+
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+export class HomePage {
+product:any;
+product_type:any;
+
+data:any;
+data1:any;
+
+
+
+  constructor(public navCtrl: NavController) {
+
+    this.product = [{"product_name":"shorts","seq":"1"},{"product_name":"pants","seq":"2"},{"product_name":"sweat hood","seq":"3"}];
+
+    this.data1 = this.product.map(function (obj) {
+    return obj.product_name;
+});
+//console.log( this.data1);
+ this.data =["shorts"];
+
+}
+
+
+test(val){
+
+ 
+var array=[];
+  for(var i in  this.product ){
+
+    if(val == this.product[i].product_name){
+
+      array.push(this.product[i])
+    }
+  }
+  console.log(array)
+}
+
+}
 
 
 
