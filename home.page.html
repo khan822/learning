@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+
+  <div [hidden]="ismenu">
+    <ion-list>
+      <ion-item *ngFor="let d of userlist">
+        <ion-label> {{d.name}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="meunuid == 2">
+
+    <div class="app-title">
+      <h1>Timeline</h1>
+    </div>
+
+    <ion-button [hidden]="showselected == 'add'" (click)="add()">Add</ion-button>
+
+    <div *ngIf="showselected == 'view'">
+        <ion-list>
+            <ion-item *ngFor="let d of userlist">
+              <ion-label> {{d.name}}</ion-label>
+            </ion-item>
+          </ion-list>
+    </div>
+
+
+
+
+    <div class="login" *ngIf="showselected == 'add'">
+      <div class="login-screen">
+
+        <div class="login-form">
+          <div class="control-group">
+            <input type="text" class="login-field" value="" [class]="color" placeholder="male" [(ngModel)]="malename" id="login-name">
+
+          </div>
+
+          <div class="control-group">
+            <input type="text" class="login-field" value="" placeholder="female" [class]="color" [(ngModel)]="femalename" id="login-name">
+
+          </div>
+          <div class="control-group">
+
+            <input type="text" placeholder="MM/DD/YYYY" onfocus="(this.type='date')" [class]="color" [(ngModel)]="date" placeholder="select date">
+
+          </div>
+
+          <br>
+          <div class="control-group">
+
+            <input type="file" name="file" id="file"  (change)="changeListener($event)" accept="image/*" class="fileInput" />
+            <label for="file">
+              <ion-icon name="images"></ion-icon>{{imageupload}}</label>
+          </div>
+
+
+          <br>
+
+          <a class="btn btn-primary btn-large btn-block" (click)="submit_timeline()">submit</a>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div *ngIf="meunuid == 3">
+    {{meunuid}}
+  </div>
+
+<!-- 
+
+
+  <div 
+  angulartics2On="click" 
+  angularticsAction="DownloadClick" 
+  [angularticsCategory]="song.name">
+  Click Me
+</div> -->
+</ion-content> 
