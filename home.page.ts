@@ -152,3 +152,116 @@ export class HomePage {
   }
 
 }
+
+
+
+
+
+
+
+
+
+    body {
+    font-family: Arial;
+   
+    background-color: #9e9e9e1c;
+    }
+  
+    .login-screen {
+    background-color: #FFF;
+    padding: 20px;
+  
+    }
+    
+    .app-title {
+    text-align: center;
+    color: #777;
+    }
+    
+    .login-form {
+    text-align: center;
+    }
+    .control-group {
+    margin-bottom: 10px;
+    }
+    
+    input {
+    
+    text-indent:10px;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+    }
+    
+    input:focus {
+    border: 2px solid #3498DB;
+    box-shadow: none;
+    }
+    
+    .btn {
+      border: 2px solid transparent;
+      background: #3498DB;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 25px;
+      padding: 10px 0;
+      text-decoration: none;
+      text-shadow: none;
+      border-radius: 3px;
+      box-shadow: none;
+      transition: 0.25s;
+      display: block;
+      width: 250px;
+      margin: 0 auto;
+    }
+    
+    .btn:hover {
+      background-color: #2980B9;
+    }
+    
+    .login-link {
+      font-size: 12px;
+      color: #444;
+      display: block;
+        margin-top: 12px;
+    }
+
+    .fileInput {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    .fileInput   label {
+        color: #717171;
+        background-color: white;
+        display: inline-block;
+        cursor: pointer;
+        padding: .5em 1em;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+  /*   .yourClassName{
+
+        color: red
+    }
+ */
+    .text-input::-moz-placeholder {
+        color: red;
+      }
+      
+      .text-input:-ms-input-placeholder {
+        color: red;
+      }
+      
+      .text-input::-webkit-input-placeholder {
+        color: red;
+      }
