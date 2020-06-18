@@ -1,0 +1,198 @@
+
+
+
+
+<style>
+
+
+ .searchbar-md .searchbar-input {
+   
+    padding: 3px 35px;
+    --border-radius: 55px!important;
+    background-position: left 8px center;
+    height: auto;
+    font-size: 15px;
+   
+    font-weight: 300;
+    line-height: 34px;
+    color: #141414;
+    background-color: #fff;
+}
+
+     ion-searchbar{
+    .searchbar-input-container{
+        .searchbar-input{
+            border-radius: 30px !important;
+        }
+    }
+}
+
+ 
+ion-select{
+
+  max-width:none
+}
+
+  .select-md {
+   
+    border: 1px solid grey;
+    border-radius: 5px;
+     height: auto;
+   
+}
+
+ion-input{
+
+  border: 1px solid grey;
+
+   border-radius: 5px;
+}
+.button-full-md {
+    border-radius: 5px;
+    border-right-width: 0;
+    border-left-width: 0;
+    height: 45px;
+}
+
+
+  </style>
+
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Panel issue</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+      <ion-card>
+       <ion-grid>
+      <ion-row >
+        <ion-col col-6>
+          <ion-label>
+            Scan QR code
+          </ion-label>
+
+          <ion-searchbar  (ionInput)="getItems($event)" (ionClear)="onCancel($event)"></ion-searchbar>
+
+        </ion-col>
+        <ion-col col-6>
+          <ion-label>
+            Issue To
+          </ion-label>
+
+
+    <ion-select [(ngModel)]="gaming" placeholder="select">
+      <ion-option value="nes">NES</ion-option>
+      <ion-option value="n64">Nintendo64</ion-option>
+      <ion-option value="ps">PlayStation</ion-option>
+      <ion-option value="genesis">Sega Genesis</ion-option>
+      <ion-option value="saturn">Sega Saturn</ion-option>
+      <ion-option value="snes">SNES</ion-option>
+    </ion-select>
+ 
+         
+        </ion-col>
+      
+      
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+           <ion-label>
+            Order Ref
+          </ion-label>
+           <ion-input type="text" placeholder="Enter Order Ref" ></ion-input>
+
+        </ion-col>
+             <ion-col>
+           <ion-label>
+           Parts
+          </ion-label>
+           <ion-input type="text" placeholder="Enter Parts" ></ion-input>
+
+        </ion-col>
+      </ion-row>
+
+      
+      <ion-row>
+        <ion-col>
+           <ion-label>
+          Color
+          </ion-label>
+           <ion-input type="text" placeholder="Enter Order Ref" ></ion-input>
+
+        </ion-col>
+             <ion-col>
+           <ion-label>
+
+Size
+</ion-label>
+           <ion-input type="text" placeholder="Enter Parts" ></ion-input>
+
+        </ion-col>
+      </ion-row>
+
+
+<ion-row>
+        <ion-col>
+           <ion-label>
+          Qty
+          </ion-label>
+           <ion-input type="text" placeholder="Enter Qty" ></ion-input>
+
+        </ion-col>
+             <ion-col>
+
+               <br>
+               
+         <ion-label>
+          
+          </ion-label>
+         <button ion-button full>Scanned View</button>
+
+
+        </ion-col>
+      </ion-row>
+
+<ion-row>
+
+   <ion-col>
+   </ion-col>
+    <ion-col>
+       <button ion-button >Add</button>
+    </ion-col>
+     <ion-col>
+       <button ion-button >Clear</button>
+    </ion-col>
+    <ion-col>
+       <button ion-button >Reject</button>
+    </ion-col>
+  </ion-row>
+
+<ion-row>
+<ion-col col-6>
+    <ion-label>
+         Total  Qty
+          </ion-label>
+
+           <ion-input type="text" placeholder="Enter Total Qty" ></ion-input>
+  </ion-col>
+  <ion-col col-2>
+  </ion-col>
+
+  <ion-col col-4>
+    <br><br>
+    <button ion-button style="margin-top: 10px;">Save</button>
+  </ion-col>
+</ion-row>
+
+
+    </ion-grid>
+    </ion-card>
+  
+</ion-content>
+
+
+
